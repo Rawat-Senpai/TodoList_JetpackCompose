@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -71,5 +72,14 @@ dependencies {
     implementation("androidx.compose.runtime:runtime:1.6.7")
     implementation("androidx.compose.runtime:runtime-livedata:1.6.7")
     implementation("androidx.compose.runtime:runtime-rxjava2:1.6.7")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+
 
 }
